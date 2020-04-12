@@ -7,7 +7,7 @@
 
     function CardDirective() {
         return {
-            templateUrl: '/static/scrumboard/card.html',
+            templateUrl: '/static/html/card.html',
             restrict: 'E', // means HTML element. it can be 'A' which is for attribute
             controller: ['$scope', '$http', function ($scope, $http) {
                 var url = '/scrumboard/cards/' + $scope.card.id + '/';
