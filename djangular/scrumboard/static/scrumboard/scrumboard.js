@@ -18,14 +18,22 @@
                     function(){
                         alert("Could not create card");
                     });
+                };
 
-                }
+                $scope.login = function() {
+                    console.log("login function has been invoked");
+                    alert("Are you sure you want to log in?");
+                    $http.post('/auth_api/login',
+                        {username: 'omri', password: 'djangular1234'});
+                };
 
                 $scope.data = [];
                 // This is asyncronos call, i.e. not waiting for a response.
                 // This results in a promiss object hence the use of `then`
                 $http.get('/scrumboard/lists/').then(function (response) {
-                    $scope.data = response.data; // shoud this be $scope.list instead ?
+                    $scope.data = response.data; // should this be $scope.list instead ?
+                }, function(response) {
+                    console.log(response);
                 });
             }
         }());

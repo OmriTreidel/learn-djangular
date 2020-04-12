@@ -1,1 +1,6 @@
-alert("greetings mate");
+(function () {
+    function greet() {
+        alert("greetings mate");
+    };
+});
+

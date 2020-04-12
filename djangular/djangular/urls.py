@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls import url
 from django.views.generic import TemplateView
-
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('scrumboard/', include('scrumboard.urls')),
-    url(r'^home', TemplateView.as_view(template_name="scrumboard/home.html")),
+    path('auth_api/', include('auth_api.urls')),
+    url(r'^home', ensure_csrf_cookie(TemplateView.as_view(template_name="scrumboard/home.html"))),
+
 ]
+

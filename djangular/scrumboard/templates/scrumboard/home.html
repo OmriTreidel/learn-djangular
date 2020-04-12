@@ -12,6 +12,10 @@
 <body ng-app="scrumboard.demo">
     {% verbatim %}
     <div ng-controller="ScrumboardController">
+
+        <button ng-click="login()">Login</button>  <!-- this doesn't work in chrome. but why?-->
+        <a href="/auth_api/logout">Logout</a><br>
+
         <div class="list" ng-repeat="list in data">
             <h3>{{list.name}}</h3>
             <ul>
@@ -31,6 +35,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
     <script src="{% static 'scrumboard/scrumboard.js' %}" type="text/javascript"></script>
     <script src="{% static 'scrumboard/card.directive.js' %}"></script>
+    <script src="{% static 'scrumboard/scrumboard.config.js' %}"></script>
 </body>
 </html>
 
